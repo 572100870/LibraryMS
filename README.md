@@ -9,7 +9,7 @@ main中和master中都有请注意分支
 
 ### 2.1 用例图
 
-![image-20250405225002739](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250405225002739.png)
+![image-20250405225002739](images/image-20250405225002739.png)
 
 
 - 系统包含4类参与者（User(Faculty, Student),Scheduler, librarian,libraryManager）
@@ -18,7 +18,7 @@ main中和master中都有请注意分支
 
 - 采用include,extend关系复用基础验证逻辑（如密码校验）
 
-  ![image-20250405225154978](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250405225154978.png)
+  ![image-20250405225154978](images\image-20250405225154978.png)
 
   ## 3. 模型规模
 
@@ -141,13 +141,13 @@ Alternative Flow {
 
    
 
-   ![image-20250406105615863](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250406105615863.png)
+   ![image-20250406105615863](images\image-20250406105615863.png)
 
-   ![image-20250406105652238](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250406105652238.png)
+   ![image-20250406105652238](images\image-20250406105652238.png)
 
-![image-20250406105708735](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250406105708735.png)
+![image-20250406105708735](images\image-20250406105708735.png)
 
-![image-20250406105750975](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250406105750975.png)
+![image-20250406105750975](images\image-20250406105750975.png)
 
 系统合约
 
@@ -1217,18 +1217,18 @@ Contract LibraryManagementSystemSystem::dueSoonNotification()  {
 
 需求原型化结果截图
 
-![image-20250511133301341](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250511133301341.png)
+![image-20250511133301341](images\image-20250511133301341.png)
 
 
 
-![image-20250511133310315](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250511133310315.png)
+![image-20250511133310315](images\image-20250511133310315.png)
 
-![image-20250511133316987](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250511133316987.png)
+![image-20250511133316987](images\image-20250511133316987.png)
 
-![image-20250511133324461](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250511133324461.png)
+![image-20250511133324461](images\image-20250511133324461.png)
 
-![image-20250511133340605](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250511133340605.png)![image-20250511133351756](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250511133351756.png)
+![image-20250511133340605](images\image-20250511133340605.png)![image-20250511133351756](images\image-20250511133351756.png)
 
 类数量
 
-![image-20250511135713982](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20250511135713982.png)
+![image-20250511135713982](images\image-20250511135713982.png)
