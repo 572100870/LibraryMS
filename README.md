@@ -1232,3 +1232,118 @@ Contract LibraryManagementSystemSystem::dueSoonNotification()  {
 类数量
 
 ![image-20250511135713982](images\image-20250511135713982.png)
+实验二
+1. 需求模型抽象化
+用户需求：
+
+用户需要通过系统完成身份认证、任务管理、内容搜索、书签管理和通知接收
+系统需支持个性化仪表盘展示、安全会话管理和数据完整性保护
+系统需求：
+
+登录验证需实现3次失败锁定机制（功能需求）
+搜索服务需支持相关性排序算法（功能需求）
+书签保存需检测重复项（功能需求）
+系统需保证会话终止时的安全性（非功能需求：安全审计）
+邮件服务需具备重试机制（非功能需求：服务可靠性）
+替代流程：
+
+数据检索失败时自动重试3次（非功能需求：容错能力）
+用户输入无效格式时实时校验（功能需求：数据完整性）
+网络中断时暂存通知待恢复后发送（非功能需求：消息持久化）
+核心实体：
+
+用户（属性：userID、credentials、lockedStatus）
+会话（属性：sessionID、expireTime、activeStatus）
+书签（属性：contentHash、saveTimestamp、sharedChannels）
+通知（属性：notificationID、retryCount、deliveryStatus）
+2. 设计提示词
+设计模型生成提示词
+text
+根据以下需求生成面向对象设计模型：  
+1. 系统功能包括：  
+   - 多因素身份认证（密码+邮件验证）  
+   - 支持自然语言搜索的语义分析  
+   - 书签版本管理（历史版本追溯）  
+   - 跨平台通知推送（邮件/短信/站内信）  
+2. 核心约束：  
+   - 密码存储需满足OWASP安全标准  
+   - 搜索响应时间<500ms（P99延迟）  
+   - 书签数据需支持跨设备同步  
+3. 技术要求：  
+   - 生成包含继承关系的类图（如BaseUser→AdminUser）  
+   - 设计分层架构（表现层/业务层/数据层）  
+   - 说明关键设计模式应用（如工厂模式创建通知渠道）  
+微服务拆分提示词
+text
+基于以下需求设计微服务架构：  
+1. 业务场景：  
+   - 每天处理百万级并发登录请求  
+   - 支持多语言内容搜索（中文/英文混合查询）  
+   - 书签数据需加密存储（GDPR合规要求）  
+2. 技术需求：  
+   - 身份服务需支持OAuth2.0协议  
+   - 搜索服务要求水平扩展能力  
+   - 通知服务需兼容第三方服务（SendGrid/Mailgun）  
+3. 架构要求：  
+   - 定义服务网格（Service Mesh）治理策略  
+   - 说明数据库选型依据（SQL/NoSQL）  
+   - 规划缓存策略（Redis集群部署方案）  
+3. 生成结果示例
+设计模型
+类图架构：
+
+text
+安全模块：
+└─ AuthenticationHandler
+   ├─ verifyCredentials() : JWT
+   └─ checkLockStatus() : Boolean
+
+数据服务：
+├─ SearchEngine
+│  ├─ buildIndex() : void
+│  └─ semanticSearch() : ResultSet
+└─ BookmarkManager
+   ├─ detectDuplicate() : Boolean
+   └─ versionControl() : RevisionHistory
+
+通信层：
+└─ NotificationDispatcher
+   ├─ sendImmediately() : DeliveryReceipt
+   └─ queueForRetry() : void
+模块划分：
+
+安全认证模块
+实现JWT令牌生成/验证
+集成reCAPTCHA防机器人机制
+智能搜索模块
+基于BERT模型实现语义分析
+使用Faiss进行向量相似度计算
+数据持久化模块
+书签数据采用AES-256加密存储
+实现SQL注入防护过滤器
+微服务架构
+服务矩阵：
+
+服务名称	技术栈	QPS	SLA
+Auth-Service	Spring Security+Redis	10k	99.95%
+Search-Service	Elasticsearch+Python	5k	99.9%
+Data-Service	MongoDB+Node.js	8k	99.99%
+服务通信机制：
+
+同步通信：
+REST API（搜索请求/书签同步）
+gRPC（实时通知推送）
+异步通信：
+Kafka（用户行为日志收集）
+RabbitMQ（跨服务事件通知）
+容灾方案：
+
+搜索服务：
+多AZ部署实现区域性故障转移
+查询降级开关（禁用复杂语义分析）
+通知服务：
+多通道故障切换（邮件→短信→站内信）
+死信队列人工处理机制
+数据服务：
+跨区域数据同步（MongoDB Atlas全球集群）
+每日自动备份至S3冰川存储
