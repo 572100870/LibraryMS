@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/org.eclipse.sirisus.sample.library/src-gen" creationIcons="false"
+    editDirectory="/org.eclipse.sirisus.sample.library.edit/src-gen" editorDirectory="/org.eclipse.sirisus.sample.library.editor/src-gen"
+    modelPluginID="org.eclipse.sirisus.sample.library" modelName="Library" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>library.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Library" basePackage="org.eclipse.sirisus.sample" disposableProviderFactory="true"
+      ecorePackage="library.ecore#/">
+    <genClasses ecoreClass="library.ecore#//LibraryManagementSystem"/>
+    <genClasses ecoreClass="library.ecore#//User">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference library.ecore#//User/user"/>
+    </genClasses>
+    <genClasses ecoreClass="library.ecore#//Scheduler">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference library.ecore#//Scheduler/Schuduler"/>
+    </genClasses>
+    <genClasses ecoreClass="library.ecore#//ThirdPartSystem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference library.ecore#//ThirdPartSystem/ThirdPartSystem"/>
+    </genClasses>
+    <genClasses ecoreClass="library.ecore#//LibrarianNew">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference library.ecore#//LibrarianNew/LibraryNew"/>
+    </genClasses>
+    <genClasses ecoreClass="library.ecore#//LibraryManager">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference library.ecore#//LibraryManager/LibraryManager"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
