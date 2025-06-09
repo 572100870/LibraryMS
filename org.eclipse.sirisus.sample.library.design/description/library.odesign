@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="library" version="12.0.0.2017041100">
+  <ownedViewpoints name="users" modelFileExtension="library">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Users diagram" domainClass="library::Users" enablePopupBars="true">
+      <metamodel href="../../org.eclipse.sirisus.sample.library/model/library.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="LibraryManagerNode" domainClass="library::libraryManager">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Librarian" domainClass="library::librarian"/>
+        <edgeMappings name="librarianEdge" sourceMapping="//@ownedViewpoints[name='users']/@ownedRepresentations[name='Users%20diagram']/@defaultLayer/@nodeMappings[name='LibraryManagerNode'] //@ownedViewpoints[name='users']/@ownedRepresentations[name='Users%20diagram']/@defaultLayer/@nodeMappings[name='Librarian']" targetMapping="//@ownedViewpoints[name='users']/@ownedRepresentations[name='Users%20diagram']/@defaultLayer/@nodeMappings[name='Librarian']" targetFinderExpression="feature:librarian">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createLibrarian" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='users']/@ownedRepresentations[name='Users%20diagram']/@defaultLayer/@nodeMappings[name='Librarian']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance">
+                  <subModelOperations xsi:type="tool_1:SetValue"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirisus.sample.library.design.Services"/>
+  </ownedViewpoints>
+</description:Group>
